@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/base_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragments.SearchFragment">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/search_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/word_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeColor="@color/black"
+        android:layout_marginTop="@dimen/side_margin"
+        app:layout_constraintTop_toBottomOf="@+id/search_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/side_margin">
+
+            <TextView
+                android:id="@+id/word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="hello"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/phonetic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ha'lav"
+                android:layout_marginTop="@dimen/base_margin"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/word"/>
+
+            <ImageView
+                android:id="@+id/favourite_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_favorite"
+                android:layout_marginEnd="@dimen/base_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/btn_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_share_icon"
+                android:layout_marginEnd="@dimen/base_margin"
+                android:layout_marginTop="@dimen/base_margin"
+                app:layout_constraintTop_toBottomOf="@id/favourite_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/noun_meaning_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeColor="@color/black"
+        android:padding="@dimen/base_margin"
+        android:layout_marginTop="@dimen/side_margin"
+        app:layout_constraintTop_toBottomOf="@id/word_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/side_margin">
+
+            <TextView
+                android:id="@+id/type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/type"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/noun_meaning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/noun"
+                android:layout_marginStart="@dimen/side_more"
+                app:layout_constraintStart_toEndOf="@id/type"
+                app:layout_constraintTop_toTopOf="@id/type"/>
+
+            <TextView
+                android:id="@+id/definition_title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/definition"
+                android:layout_marginTop="@dimen/side_margin"
+                app:layout_constraintTop_toBottomOf="@id/type"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/definition_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/side_margin"
+                android:text="an utterance of ‘hello’; a greeting"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/definition_title_1"
+                app:layout_constraintTop_toTopOf="@id/definition_title_1"/>
+
+            <TextView
+                android:id="@+id/definition_title_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/definition"
+                app:layout_constraintTop_toTopOf="@id/definition_2"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/definition_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/side_margin"
+                android:layout_marginTop="@dimen/definition_space"
+                android:text="used as a greeting or to begin a phone conversation."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@id/definition_title_2"
+                app:layout_constraintTop_toBottomOf="@+id/definition_1" />
+
+            <TextView
+                android:id="@+id/definition_title_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/definition"
+                app:layout_constraintTop_toTopOf="@id/definition3"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/definition3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="early 19th century: variant of earlier hollo ; related to holla.."
+                android:layout_marginStart="@dimen/side_margin"
+                android:layout_marginTop="@dimen/definition_space"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/definition_title_3"
+                app:layout_constraintTop_toBottomOf="@id/definition_2"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/verb_meaning_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeColor="@color/black"
+        android:layout_marginTop="@dimen/side_margin"
+        app:layout_constraintTop_toBottomOf="@+id/noun_meaning_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/side_margin">
+
+            <TextView
+                android:id="@+id/type2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/type"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/type2"
+                android:text="@string/verb"
+                android:layout_marginStart="@dimen/side_more"
+                app:layout_constraintTop_toTopOf="@id/type2"/>
+
+            <TextView
+                android:id="@+id/verb_definition_title_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/definition"
+                app:layout_constraintTop_toBottomOf="@id/type2"
+                android:layout_marginTop="@dimen/side_margin"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/verb_definition"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="say or shout ‘hello’."
+                android:layout_marginStart="@dimen/side_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/verb_definition_title_1"
+                app:layout_constraintTop_toTopOf="@id/verb_definition_title_1"/>
+
+
+            <TextView
+                android:id="@+id/verb_definition_title_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/definition"
+                app:layout_constraintTop_toTopOf="@id/verb_definition2"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/verb_definition2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="I pressed the phone button and helloed"
+                android:layout_marginTop="@dimen/definition_space"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/verb_definition"
+                app:layout_constraintStart_toEndOf="@id/verb_definition_title_2"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
