@@ -9,9 +9,15 @@ import com.example.dictionaryapp.data.local.History
 import com.example.dictionaryapp.data.model.Definition
 import com.example.dictionaryapp.data.repository.Repository
 import com.example.dictionaryapp.utils.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(private val repository: Repository) : ViewModel() {
+@HiltViewModel
+class MainViewModel @Inject constructor(
+    private val repository: Repository)
+    : ViewModel() {
     val definition: LiveData<Resource<Definition>>
         get() = repository.definition
 
@@ -26,25 +32,25 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
     }
 
     fun insert(define: Define) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.insert(define)
         }
     }
 
     fun insert(history: History) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.insert(history)
         }
     }
 
     fun delete(history: History) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.delete(history)
         }
     }
 
     fun delete(define: Define) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             repository.delete(define)
         }
     }

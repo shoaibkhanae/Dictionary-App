@@ -9,21 +9,18 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dictionaryapp.databinding.FragmentFavoriteBinding
-import com.example.dictionaryapp.di.MyApplication
 import com.example.dictionaryapp.ui.MainViewModel
-import com.example.dictionaryapp.ui.MainViewModelFactory
 import com.example.dictionaryapp.ui.adapters.WordAdapter
 import com.google.android.material.snackbar.Snackbar
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class FavoriteFragment : Fragment() {
     private var _binding: FragmentFavoriteBinding? = null
     private val binding
         get() = _binding!!
 
-    private val shareViewModel: MainViewModel by activityViewModels {
-        MainViewModelFactory((requireActivity().application as MyApplication).repository)
-    }
+    private val shareViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

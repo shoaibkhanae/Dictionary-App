@@ -5,9 +5,7 @@ import com.example.dictionaryapp.data.local.WordDatabase
 import com.example.dictionaryapp.data.remote.DictionaryApiService
 import com.example.dictionaryapp.data.remote.RetrofitHelper
 import com.example.dictionaryapp.data.repository.Repository
+import dagger.hilt.android.HiltAndroidApp
 
-class MyApplication: Application() {
-    private val api by lazy { RetrofitHelper.getRetrofitInstance().create(DictionaryApiService::class.java) }
-    private val database by lazy { WordDatabase.getDatabase(applicationContext) }
-    val repository by lazy { Repository(api,database.wordDao()) }
-}
+@HiltAndroidApp
+class MyApplication: Application()

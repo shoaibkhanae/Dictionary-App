@@ -9,11 +9,13 @@ import com.example.dictionaryapp.data.remote.DictionaryApiService
 import com.example.dictionaryapp.data.model.Definition
 import com.example.dictionaryapp.utils.Resource
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class Repository(
+
+class Repository @Inject constructor(
     private val service: DictionaryApiService,
     private val wordDao: WordDao
-    ) {
+) {
 
     private val _definitions = MutableLiveData<Resource<Definition>>()
     val definition: LiveData<Resource<Definition>> = _definitions

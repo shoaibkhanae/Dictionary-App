@@ -12,11 +12,11 @@ import androidx.fragment.app.activityViewModels
 import com.example.dictionaryapp.data.local.Define
 import com.example.dictionaryapp.data.local.History
 import com.example.dictionaryapp.databinding.FragmentSearchBinding
-import com.example.dictionaryapp.di.MyApplication
 import com.example.dictionaryapp.ui.MainViewModel
-import com.example.dictionaryapp.ui.MainViewModelFactory
 import com.example.dictionaryapp.utils.Resource
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding
@@ -25,9 +25,7 @@ class SearchFragment : Fragment() {
     private var currentWord: String = ""
     private var currentWordDefinition: String = ""
 
-    private val shareViewModel: MainViewModel by activityViewModels {
-        MainViewModelFactory((requireActivity().application as MyApplication).repository)
-    }
+    private val shareViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
